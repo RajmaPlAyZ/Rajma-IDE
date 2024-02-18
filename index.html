@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajma IDE</title>
+    <link rel="icon" href="/icons/logo.ico" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="codemirror-5.65.9/codemirror-5.65.9/lib/codemirror.css">
+    <script src="codemirror-5.65.9/codemirror-5.65.9/lib/codemirror.js"></script>
+    <script src="codemirror-5.65.9/codemirror-5.65.9/mode/clike/clike.js"></script>
+    <script src="codemirror-5.65.9/codemirror-5.65.9/mode/javascript/javascript.js"></script>
+    <script src="codemirror-5.65.9/codemirror-5.65.9/addon/edit/closebrackets.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="codemirror-5.65.9/codemirror-5.65.9/mode/python/python.js"></script>
+    <script src="codemirror-5.65.9/codemirror-5.65.9/addon/lint/lint.js"></script>
+    <link rel="stylesheet" href="codemirror-5.65.9/codemirror-5.65.9/addon/lint/lint.css">
+    <script src="codemirror-5.65.9/codemirror-5.65.9/addon/fold/foldcode.js"></script>
+    <script src="codemirror-5.65.9/codemirror-5.65.9/addon/fold/foldgutter.js"></script>
+    <link rel="stylesheet" href="codemirror-5.65.9/codemirror-5.65.9/addon/fold/foldgutter.css">
+    <script src="codemirror-5.65.9/codemirror-5.65.9/addon/search/search.js"></script>
+    <script src="codemirror-5.65.9/codemirror-5.65.9/addon/search/searchcursor.js"></script>
+    <script src="codemirror-5.65.9/codemirror-5.65.9/addon/search/jump-to-line.js"></script>
+    <script src="codemirror-5.65.9/codemirror-5.65.9/addon/search/matchesonscrollbar.js"></script>
+    <script src="codemirror-5.65.9/codemirror-5.65.9/addon/search/match-highlighter.js"></script>
+    <script src="codemirror-5.65.9/codemirror-5.65.9/addon/display/fullscreen.js"></script>
+    <link rel="stylesheet" href="codemirror-5.65.9/codemirror-5.65.9/addon/display/fullscreen.css">
+    <script src="codemirror-5.65.9/codemirror-5.65.9/keymap/sublime.js"></script>
+    <script src="codemirror-5.65.9/codemirror-5.65.9/addon/wrap/hardwrap.js"></script>
+    <link rel="stylesheet" href="codemirror-5.65.9/codemirror-5.65.9/theme/eclipse.css">
+    <link rel="stylesheet" href="codemirror-5.65.9/codemirror-5.65.9/theme/material.css">
+    <link rel="stylesheet" href="codemirror-5.65.9/codemirror-5.65.9/theme/dracula.css">
+    <link rel="stylesheet" href="codemirror-5.65.9/codemirror-5.65.9/theme/darcula.css">
+    <link rel="stylesheet" href="codemirror-5.65.9/codemirror-5.65.9/theme/3024-night.css">
+    <link rel="stylesheet" href="codemirror-5.65.9/codemirror-5.65.9/theme/blackboard.css">
+    <link rel="stylesheet" href="codemirror-5.65.9/codemirror-5.65.9/theme/gruvbox-dark.css">
+    <link rel="stylesheet" href="codemirror-5.65.9/codemirror-5.65.9/theme/duotone-dark.css">
+    <link rel="stylesheet" href="codemirror-5.65.9/codemirror-5.65.9/theme/duotone-light.css">
+    <link rel="stylesheet" href="codemirror-5.65.9/codemirror-5.65.9/theme/oceanic-next.css">
+    <link rel="stylesheet" href="codemirror-5.65.9/codemirror-5.65.9/theme/elegant.css">
+
+
+</head>
+<body style="background-color: #1E1E1E; color: #FFFFFF;">
+    <div class="row m-3 text-bg-dark p-3">
+        <div class="col">
+            <div class = "d-flex justify-content-between mb-2">
+                <div class="col-auto d-flex justify-content-between">
+                    <img src="/images/logo-removebg-preview.png" alt="Rajma IDE" width="60" height="60">
+                </div>
+                <div class="col-auto w-20">
+                    <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+                    <select class="form-select" id="lang">
+                        <option selected>Select Language...</option>
+                        <option value="Java">Java</option>
+                        <option value="Cpp">Cpp</option>
+                        <option value="Python">Python</option>
+                        <option value="C#">C#</option>
+                    </select>
+                </div>
+                <div>
+                    <button type="button" id="run" class="btn btn-success"><i class="bi bi-play-fill">Run</i></button>
+                </div>
+                </button>
+                <div class="col-auto w-20">
+                    <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+                    <select class="form-select" id="theme">
+                        <option selected>Select Theme...</option>
+                        <option value="Darcula">Darcula</option>
+                        <option value="Eclipse">Eclipse</option>
+                        <option value="Material">Material</option>
+                        <option value="3024-night">3024-Night</option>
+                        <option value="Blackboard">Blackboard</option>
+                        <option value="Gruvbox-dark">Gruvbox-Dark</option>
+                        <option value="Duotone-dark">Duotone-Dark</option>
+                        <option value="Duotone-light">Duotone-Light</option>
+                        <option value="Oceanic-next">Oceanic-Next</option>
+                        <option value="Elegant">Elegant</option>
+                    </select>
+                </div>
+                <button type="button" class="btn btn-primary h-50">
+                    Rajma IDE<span class="badge text-bg-secondary"></span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-body-text" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M0 .5A.5.5 0 0 1 .5 0h4a.5.5 0 0 1 0 1h-4A.5.5 0 0 1 0 .5m0 2A.5.5 0 0 1 .5 2h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m9 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-9 2A.5.5 0 0 1 .5 4h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m5 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5m-12 2A.5.5 0 0 1 .5 6h6a.5.5 0 0 1 0 1h-6a.5.5 0 0 1-.5-.5m8 0a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m-8 2A.5.5 0 0 1 .5 8h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m7 0a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m-7 2a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 0 1h-8a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 0 1h-4a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/>
+                    </svg>
+            </div>
+            <textarea type="text" id="editor" class="form-control" aria-label="Code Editor"></textarea>
+            <button type="button" id="save" class="btn btn-outline-light mt-4">Save</button>
+        </div>
+        <div class="col d-flex flex-column bg-dark rounded px-4">
+            <div class="h-50">
+                <label for="Input" class="form-label text-light mt-4 mb-2">Input</label>
+                <textarea type="text" id="input" class="form-control h-75" aria-label="Last name"></textarea>
+            </div>
+            <div class="h-50">
+                <label for="Output" class="form-label text-light mb-2">Output</label>
+                <textarea type="text" id="output" class="form-control h-75" aria-label="Last name"></textarea>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+var editor = CodeMirror.fromTextArea(document.getElementById('editor'), {
+    mode: "text/x-c++src",
+    theme: "dracula",
+    lineNumbers: true,
+    autoCloseBrackets: true,
+    lint: true, // Enable linting
+    foldGutter: true, // Enable code folding
+    gutters: ["CodeMirror-linenumbers", "CodeMirror-foldgutter"],
+    search: true, // Enable search and replace
+    keyMap: "sublime", // Use Sublime Text keymap
+    styleActiveLine: true, // Highlight the active line
+    highlightSelectionMatches: { showToken: /\w/, annotateScrollbar: true },
+    lineWrapping: true, // Enable line wrapping
+});
+
+function updateEditorSize() {
+    var width = window.innerWidth * 0.75;
+    var height = 500; // You can adjust the height as needed
+    var input = document.getElementById("input");
+    var output = document.getElementById("output");
+    var run = document.getElementById("run");
+    editor.setSize(width, height);
+
+    run.addEventListener("click", async function () {
+        var code = {
+            code: editor.getValue(),
+            input: input.value,
+            lang: option.value
+        };
+        console.log(code);
+        var oData = await fetch("http://localhost:8000/compile", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(code)
+        });
+        var d = await oData.json();
+        output.value = d.output;
+    });
+}
+
+// Initial sizing
+updateEditorSize();
+
+// Update editor size on window resize
+window.addEventListener('resize', updateEditorSize);
+
+var option = document.getElementById("lang");
+option.addEventListener("change", function() {
+    var lang = option.value;
+    if (lang === "Java") {
+        editor.setOption("mode", "text/x-java");
+    } else if (lang === "Cpp") {
+        editor.setOption("mode", "text/x-c++src");
+    } else if (lang === "Python") {
+        editor.setOption("mode", "text/x-python");
+    } else if (lang === "C") {
+        editor.setOption("mode", "text/x-csrc");
+    } else if (lang === "C#") {
+        editor.setOption("mode", "text/x-csharp");
+    }
+});
+
+var edTheme = document.getElementById("theme");
+edTheme.addEventListener("change", function() {
+    var theme = edTheme.value;
+    if (theme === "Darcula") {
+        editor.setOption("theme", "darcula");
+    } else if (theme === "Eclipse") {
+        editor.setOption("theme", "eclipse");
+    } else if (theme === "Material") {
+        editor.setOption("theme", "material");
+    } else if (theme === "3024-night") {
+        editor.setOption("theme", "3024-night");
+    } else if (theme === "Blackboard") {
+        editor.setOption("theme", "blackboard");
+    } else if (theme === "Gruvbox-dark") {
+        editor.setOption("theme", "gruvbox-dark");
+    } else if (theme === "Duotone-dark") {
+        editor.setOption("theme", "duotone-dark");
+    } else if (theme === "Duotone-light") {
+        editor.setOption("theme", "duotone-light");
+    } else if (theme === "Oceanic-next") {
+        editor.setOption("theme", "oceanic-next");
+    } else if (theme === "Elegant") {
+        editor.setOption("theme", "elegant");
+    }
+});
+
+document.getElementById('save').addEventListener('click', function () {
+    // Get the code from the CodeMirror editor
+    var code = editor.getValue();
+
+    // Log to check if the code is being retrieved
+    console.log('Code to be saved:', code);
+
+    // You can use the Fetch API to send a POST request to the server for saving the code
+    fetch('/save', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ code }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Code saved successfully!');
+        } else {
+            alert('Failed to save code.');
+        }
+    })
+    .catch(error => {
+        console.error('Error saving code:', error);
+        alert('Code Saved Successfully!, In Program Directory');
+    });
+});
+
+</script>
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/0CFuMybe6s77w6QQrJjW7d?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+</html>

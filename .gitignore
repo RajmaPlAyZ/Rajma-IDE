@@ -1,0 +1,58 @@
+# Node.js
+node_modules/
+
+# Logs
+logs
+*.log
+
+# Dependency directories
+puppeteer/
+.sass-cache/
+bower_components/
+jspm_packages/
+tmp/
+vendor/
+.idea/
+.vscode/
+
+# Optional: Config files
+*.config.js
+config.js
+
+# Optional: Environment variables
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+.env.local
+# Node.js
+node_modules/
+
+# Logs
+logs
+*.log
+
+# Dependency directories
+puppeteer/
+.sass-cache/
+bower_components/
+jspm_packages/
+tmp/
+vendor/
+.idea/
+.vscode/
+
+# Optional: Config files
+*.config.js
+config.js
+
+# Optional: Environment variables
+.env
+.env.local
+.env.*.local
+.env.development
+.env.test
+.env.production
+.env.local
