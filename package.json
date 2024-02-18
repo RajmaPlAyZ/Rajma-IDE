@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node Apio.js",
     "install": "npm install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
