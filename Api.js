@@ -1,9 +1,6 @@
 const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
-const { Isolate } = require('isolated-vm');
-const Docker = require('dockerode');
-const docker = new Docker();
 const compiler = require('compilex');
 const options = { stats: true };
 compiler.init(options);
