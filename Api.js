@@ -6,9 +6,9 @@ const options = { stats: true };
 compiler.init(options);
 
 app.use(bodyParser.json());
-app.use("/codemirror-5.65.9", express.static("C:/Users/user/Desktop/Rajma IDE/codemirror-5.65.9"));
-app.use("/images", express.static("C:/Users/user/Desktop/Rajma IDE/images"));
-app.use("/icons", express.static("C:/Users/user/Desktop/Rajma IDE/icons"));
+app.use("/codemirror-5.65.9", express.static(__dirname + "/codemirror-5.65.9"));
+app.use("/images", express.static(__dirname + "/images"));
+app.use("/icons", express.static(__dirname + "/icons"));
 
 app.get("/", function (req, res) {
     compiler.flush(function () {
